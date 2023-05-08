@@ -13,27 +13,17 @@ typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 
-	int t; cin >> t;
-	vi v;
+	int t, i=1; cin >> t;
 	
 	while(t--) {
-		int n, sum=0, min_x = 1e9, max_x = 0; cin >> n;
-		fore(i,0,n) {
-			int x;
-			cin >> x;
-			sum += x;
-			max_x = max(max_x, x);
-			min_x = min(min_x, x);
-		}
-		sum /= n;
-		int optimal_parking = ((sum - min_x)*2) + ((max_x - sum)*2);
-		v.pb(optimal_parking);
+		int l, w, h;
+		cin >> l >> w >> h;
+		cout << "Case " << i << ": " << (l <= 20 && w <= 20 && h <= 20 ? "good\n" : "bad\n");
+		i++;
 	}
 
-	fore(i,0,SZ(v)) cout << v[i] << '\n';
-
-  return 0;
+	return 0;
 }
