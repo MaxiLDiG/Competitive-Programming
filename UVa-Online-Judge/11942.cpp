@@ -13,20 +13,23 @@ typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 
 	int n; cin >> n;
+	cout << "Lumberjacks:" << endl;
 	while(n--) {
-		double f, germanysBudget=0; cin >> f;
-		while(f--) {
-			double farmSize, nAnimals, environmentf;
-			cin >> farmSize >> nAnimals >> environmentf;
-			double animalSize = farmSize / nAnimals, prime = animalSize * environmentf * nAnimals;
-			germanysBudget += prime;
+		bool increasing = true, decreasing = true;
+		vi v(10);
+		fore(i,0,10)
+			cin >> v[i];
+		fore(i,0,9) {
+			if(v[i] > v[i+1]) increasing = false;
+			if(v[i] < v[i+1]) decreasing = false;
 		}
-		cout << germanysBudget << endl;
+		if(increasing || decreasing) cout << "Ordered" << endl;
+		else cout << "Unordered" << endl;
 	}
 
-  return 0;
+	return 0;
 }
