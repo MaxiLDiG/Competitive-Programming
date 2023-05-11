@@ -12,26 +12,24 @@ typedef long long ll;
 typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
-
-int g(int n) {
-	if(n == 0) {
-		return n;
-	} else {
-		return g(n&10 + n/10);
-	}
-}
-
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 
-	int x;
-	while(true) {
-		cin >> x;
-		if(x == 0) break;
-		cout << g(x) << endl;
+	int n; cin >> n;
+	cout << "Lumberjacks:" << endl;
+	while(n--) {
+		bool increasing = true, decreasing = true;
+		vi v(10);
+		fore(i,0,10)
+			cin >> v[i];
+		fore(i,0,9) {
+			if(v[i] > v[i+1]) increasing = false;
+			if(v[i] < v[i+1]) decreasing = false;
+		}
+		if(increasing || decreasing) cout << "Ordered" << endl;
+		else cout << "Unordered" << endl;
 	}
 
 	return 0;
 }
-

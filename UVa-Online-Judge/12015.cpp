@@ -15,23 +15,23 @@ typedef vector<ii> vii;
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
-	
-	int n, b, h, w, total, min_cost = 1e9;
-	while(cin >> n >> b >> h >> w) {
-		fore(i,0,h) {
-			int p, a; cin >> p;
-			fore(j,0,w) {
-				cin >> a;
-				total = 0;
-				if(a >= n) {
-					total = p*n;
-					min_cost = min(total, min_cost);
-				}
+
+	int t; cin >> t;
+	fore(i,0,t) {
+		vector<pair<string, int> > webs;
+		int max_x = 0, j=10;
+		while(j--) {
+			string s; cin >> s;
+			int x; cin >> x;
+			webs.pb(mp(s,x));
+			max_x = max(max_x, x);
+		}
+		cout << "Case #" << i+1 << ":" << endl;
+		for(auto& elem : webs) {
+			if(elem.snd == max_x) {
+				cout << elem.fst << endl;
 			}
 		}
-		if(min_cost < b) cout << min_cost << endl;
-		else cout << "stay home" << endl;
-		min_cost = 1e9;
 	}
 
 	return 0;

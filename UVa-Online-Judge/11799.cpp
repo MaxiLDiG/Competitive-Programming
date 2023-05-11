@@ -15,23 +15,15 @@ typedef vector<ii> vii;
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
-	
-	int n, b, h, w, total, min_cost = 1e9;
-	while(cin >> n >> b >> h >> w) {
-		fore(i,0,h) {
-			int p, a; cin >> p;
-			fore(j,0,w) {
-				cin >> a;
-				total = 0;
-				if(a >= n) {
-					total = p*n;
-					min_cost = min(total, min_cost);
-				}
-			}
+
+	int t; cin >> t;
+	fore(i,0,t) {
+		int n, max_x=0; cin >> n;
+		while(n--) {
+			int x; cin >> x;
+			max_x = max(max_x, x);
 		}
-		if(min_cost < b) cout << min_cost << endl;
-		else cout << "stay home" << endl;
-		min_cost = 1e9;
+		cout << "Case " << i+1 << ": " << max_x << "\n";
 	}
 
 	return 0;
