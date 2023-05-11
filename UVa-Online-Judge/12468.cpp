@@ -16,17 +16,9 @@ int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
 
-	int n; cin >> n;
-	while(n--) {
-		double f, germanysBudget=0; cin >> f;
-		while(f--) {
-			double farmSize, nAnimals, environmentf;
-			cin >> farmSize >> nAnimals >> environmentf;
-			double animalSize = farmSize / nAnimals, prime = animalSize * environmentf * nAnimals;
-			germanysBudget += prime;
-		}
-		cout << germanysBudget << endl;
-	}
+	int a, b;
+	while(cin >> a >> b && a != -1 && b != -1)
+		cout << (abs(a-b) > 50 ? (99-max(a,b))+min(a,b)+1 : abs(a-b)) << endl;
 
   return 0;
 }

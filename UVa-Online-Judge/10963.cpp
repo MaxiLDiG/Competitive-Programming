@@ -18,14 +18,18 @@ int main() {
 
 	int n; cin >> n;
 	while(n--) {
-		double f, germanysBudget=0; cin >> f;
-		while(f--) {
-			double farmSize, nAnimals, environmentf;
-			cin >> farmSize >> nAnimals >> environmentf;
-			double animalSize = farmSize / nAnimals, prime = animalSize * environmentf * nAnimals;
-			germanysBudget += prime;
+		int w, max_; cin >> w;
+		bool canBeClosed = true;
+		int wInicial = w;
+		while(w--) {
+			int y1, y2, gap; cin >> y1 >> y2;
+			if(wInicial-1 == w) gap = abs(y1-y2);
+			if(abs(y1-y2) != gap) {
+				canBeClosed = false;
+				break;
+			}
 		}
-		cout << germanysBudget << endl;
+		cout<<(canBeClosed ? "yes" : "no")<<endl;
 	}
 
   return 0;
