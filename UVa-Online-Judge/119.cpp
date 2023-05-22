@@ -13,47 +13,36 @@ typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
 typedef vector<ii> vii;
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
 
-	int x;
-	while(cin >> x) {
-		map<string, int> v;
-		fore(i,0,x) {
-			string s;
-			cin >> s;
-			v[s] = 0;
-		}
-		fore(i,0,SZ(v)) {
+	int n, k=1;
+	while(cin >> n) {
+		map<string, int> mma, mm;
+		vector<string> v;
+		fore(i,0,n) {
 			string s; cin >> s;
-			int cant, cantP;
-			cin >> cant >> cantP;
-			v[s] = cant;
-			int cantM = v[s]/cantP;
-			while(cantP--) {
+			mma[s] = 0;
+			v.pb(s);
+		}
+		fore(i,0,n) {
+			string s; cin >> s;
+			int m, p; cin >> m >> p;
+			mma[s] += m;
+			mm[s] = m;
+			fore(i,0,p) {
 				string sp; cin >> sp;
-				v[sp] += cantM;
-				v[s] -= cantM;
+				mma[sp] += mm[s]/p;
+				mma[s] -= mm[s]/p;
 			}
 		}
-		for(auto& elem : v) {
-			cout << elem.fst << ' ' << elem.snd << endl;
+		int i=0;
+		if(k++ > 1) cout << endl;
+		for(auto it1 = mma.begin(), it2 = mm.begin(); it1 != mma.end() || it2 != mm.end(); ++it1, ++it2) {
+			cout << v[i] << ' ' << (mma[v[i]]-mm[v[i]]) << endl;
+			i++;
 		}
 	}
 
-  return 0;
+	return 0;
 }
-/*
-5
-dave laura owen vick amr
-dave 200 3 laura owen vick
-owen 500 1 dave
-amr 150 2 vick owen
-laura 0 2 amr vick
-vick 0 0
-3
-liz steve dave
-liz 30 1 steve
-steve 55 2 liz dave
-dave 0 2 steve liz
-*/
